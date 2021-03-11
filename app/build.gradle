@@ -37,8 +37,8 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
-    implementation ' com.mindorks.android:placeholderview:1.0.3 '
-    annotationProcessor ' com.mindorks.android:placeholderview-compiler:1.0.3 '
-    implementation ' com.android.support:recyclerview-v7: <current-version> '
+    implementation 'com.mindorks.android:placeholderview:1.0.3'
+    annotationProcessor 'com.mindorks.android:placeholderview-compiler:1.0.3'
+    implementation 'com.mindorks:placeholderview:0.7.3'
 
 }
