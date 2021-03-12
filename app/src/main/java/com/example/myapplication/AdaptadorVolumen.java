@@ -23,11 +23,13 @@ public class AdaptadorVolumen extends ArrayAdapter<Volumenes> {
         TextView titulo = (TextView)item.findViewById(R.id.title);
         titulo.setText(getItem(position).getTitle());
         TextView volumen = item.findViewById(R.id.volumen);
-        volumen.setText(getItem(position).getVolume());
+        volumen.setText("Volumen: "+getItem(position).getVolume());
         TextView  numero = item.findViewById(R.id.number);
-        numero.setText(getItem(position).getNumber());
+        numero.setText("Numero: "+getItem(position).getNumber());
         TextView year = item.findViewById(R.id.year);
-        year.setText(getItem(position).getYear());
+        year.setText("Año: "+getItem(position).getYear());
+        TextView doi = item.findViewById(R.id.doi);
+        doi.setText(getItem(position).getDoi());
         ImageView imageView = (ImageView)item.findViewById(R.id.imgVolumen);
         Glide.with(this.getContext())
                 .load(getItem(position).getCover())
