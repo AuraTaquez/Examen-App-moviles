@@ -1,4 +1,4 @@
-package WebServices;
+package WebService;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;

@@ -1,4 +1,4 @@
-package WebServices;
+package WebService;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -9,7 +9,7 @@ import org.json.JSONException;
 
 import java.util.Map;
 
-import WebServices.HttpRequest.HttpRequestException;
+import WebService.HttpRequest.HttpRequestException;
 
 
 public class WebService extends AsyncTask<String, Long, String> {
