@@ -2,7 +2,10 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import org.json.JSONArray;
@@ -17,7 +20,7 @@ import java.util.Map;
 import WebService.WebService;
 import WebService.Asynchtask;
 
-public class Volumen extends AppCompatActivity implements Asynchtask {
+public class Volumen extends AppCompatActivity implements Asynchtask, AdapterView.OnItemClickListener  {
     String id;
     ArrayList<Volumenes> ListaVolumenes;
     @Override
@@ -29,6 +32,8 @@ public class Volumen extends AppCompatActivity implements Asynchtask {
         Map<String, String> datos = new HashMap<String, String>();
         WebService ws = new WebService(urlV, datos, Volumen.this, Volumen.this);
         ws.execute("");
+        ListView list = (ListView) findViewById(R.id.lisvolumen);
+        list.setOnItemClickListener(this);
     }
 
     @Override
@@ -51,5 +56,12 @@ public class Volumen extends AppCompatActivity implements Asynchtask {
         AdaptadorVolumen adapterVol = new AdaptadorVolumen(this, ListaVolumenes);
         ListView Hview = findViewById(R.id.lisvolumen);
         Hview.setAdapter(adapterVol);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+        Intent miIntent = new Intent(Volumen.this, ActivityPublicacion.class);
+        miIntent.putExtra("JID", ((Volumenes)adapterView.getItemAtPosition(position)).getIssue_id());
+        startActivity(miIntent);
     }
 }

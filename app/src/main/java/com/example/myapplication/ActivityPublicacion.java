@@ -1,6 +1,8 @@
 package com.example.myapplication;
 
 import android.os.Bundle;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -27,8 +29,9 @@ public class ActivityPublicacion extends AppCompatActivity implements Asynchtask
         id = getIntent().getExtras().getString("JID");
         String urlPub = "https://revistas.uteq.edu.ec/ws/pubs.php?i_id=" + id;
         Map<String, String> datos = new HashMap<String, String>();
-        WebService ws = new WebService(urlPub, datos, ActivityPublicacion.this, Volumen.this);
+        WebService ws = new WebService(urlPub, datos, ActivityPublicacion.this, ActivityPublicacion.this);
         ws.execute("");
+
     }
 
     @Override
@@ -47,10 +50,10 @@ public class ActivityPublicacion extends AppCompatActivity implements Asynchtask
             JSONArray galeysPdf = publication.getJSONArray("galeys");
             JSONObject galeysPdfobjpdf = galeysPdf.getJSONObject(0);
             publi.setUrlViewGalleyPdf(galeysPdfobjpdf.getString("UrlViewGalley"));
-            JSONObject galeysPdfobjhtml = galeysPdf.getJSONObject(1);
-            publi.setUrlViewGalleyHtml(galeysPdfobjhtml.getString("UrlViewGalley"));
             ListaPublicacion.add(publi);
         }
-
+        AdaptadorPublicacion adapP  = new AdaptadorPublicacion(this,ListaPublicacion);
+        ListView Hview = findViewById(R.id.listPublicacion);
+        Hview.setAdapter(adapP);
     }
 }

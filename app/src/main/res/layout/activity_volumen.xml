@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".Volumen">
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/texvolumen"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="TextView" />
