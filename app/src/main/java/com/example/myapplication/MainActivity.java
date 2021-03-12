@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity implements Asynchtask, Adapt
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-        Intent miIntent = new Intent(MainActivity.this, volumenes.class);
+        Intent miIntent = new Intent(MainActivity.this, Volumen.class);
         miIntent.putExtra("JID", ((Revista) adapterView.getItemAtPosition(position)).getJournal_id());
         startActivity(miIntent);
     }

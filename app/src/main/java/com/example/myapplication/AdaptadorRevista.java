@@ -1,7 +1,6 @@
 package com.example.myapplication;
 
 import android.content.Context;
-import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,10 +20,10 @@ public class AdaptadorRevista extends ArrayAdapter<Revista> {
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = LayoutInflater.from(getContext());
         View item = inflater.inflate(R.layout.activity_item, null);
-        TextView nombre = (TextView)item.findViewById(R.id.texnombre);
-        nombre.setText(getItem(position).getName());
+        TextView lblTitulo = (TextView)item.findViewById(R.id.texnombre);
+        lblTitulo.setText(getItem(position).getName());
         TextView lblDescripcion = item.findViewById(R.id.description);
-        lblDescripcion.setText(Html.fromHtml(getItem(position).getDescription()));
+        lblDescripcion.setText(getItem(position).getName());
         ImageView imageView = (ImageView)item.findViewById(R.id.imgRevista);
         Glide.with(this.getContext())
                 .load(getItem(position).getPortada())
