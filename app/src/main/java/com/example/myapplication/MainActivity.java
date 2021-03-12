@@ -25,10 +25,10 @@ public  class MainActivity extends AppCompatActivity implements Asynchtask {
         WebService ws = new WebService("https://revistas.uteq.edu.ec/ws/journals.php", datos, MainActivity.this, MainActivity.this);
         ws.execute("");
     }
-
+    ArrayList<Revista> ListaRevista;
     @Override
     public void processFinish(String result) throws JSONException {
-        ArrayList<Revista> ListaRevista = new ArrayList<>();
+        ListaRevista = new ArrayList<>();
         JSONObject jsonObject = new JSONObject(result);
         JSONObject jresults = jsonObject.getJSONObject("Results");
         Iterator<?> iterator = jresults.keys();
@@ -42,6 +42,7 @@ public  class MainActivity extends AppCompatActivity implements Asynchtask {
             revista.setDescription(Revistas.getString("description"));
             revista.setJournalThumbnail(Revistas.getString("journalThumbnail"));
             revista.setName(Revistas.getString("name"));
+            ListaRevista.add(revista);
         }
     }
 }
